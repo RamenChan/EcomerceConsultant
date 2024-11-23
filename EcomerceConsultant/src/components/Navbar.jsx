@@ -1,7 +1,9 @@
 import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+
+
+const Navbar = ({menuItems = []}) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: "#3f51b5" }}>
       <Toolbar>
@@ -12,18 +14,18 @@ const Navbar = () => {
           E-Consultant
         </Typography>
         <Box>
-          <Link to="/" style={{ textDecoration: "none", color: "#fff", marginRight: 16 }}>
-            ANASAYFA
-          </Link>
-          <Link to="/about" style={{ textDecoration: "none", color: "#fff", marginRight: 16 }}>
-            HAKKIMDA
-          </Link>
-          <Link to="/services" style={{ textDecoration: "none", color: "#fff", marginRight: 16 }}>
-            HİZMETLERİM
-          </Link>
-          <Link to="/contact" style={{ textDecoration: "none", color: "#fff" }}>
-            İLETİŞİM
-          </Link>
+          {
+            menuItems.map((item) => (
+              <Link 
+                key={item.id} 
+                to={item.url} 
+                style={
+                  { textDecoration: "none", color: "#fff", marginRight: 16 }
+                }>
+                {item.name}
+              </Link>
+          ))
+          }
         </Box>
       </Toolbar>
     </AppBar>
