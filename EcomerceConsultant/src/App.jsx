@@ -32,6 +32,7 @@ const App = () => {
 
 
   const components = {
+    //ToDo : ilk açılışta home sayfasına gitmesini sağlayacağız.
     home: <Home />,
     about: <About />,
     services: <Services />,
