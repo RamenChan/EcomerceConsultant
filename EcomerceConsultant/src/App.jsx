@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -46,6 +46,7 @@ const App = () => {
         <Box sx={{ flex: 1 }}>
           <Navbar menuItems={menuItems} />
           <Routes>
+            <Route path="/" element={<Navigate to={"/home"} replace />}/>
             {menuItems.map((item) =>
               item.isActive ? (
                 <Route
